@@ -13,14 +13,14 @@ builder.Services.AddSwaggerGen(c =>
 
 var app = builder.Build();
 
-// Initialize the store with 3 sample URLs
+// Initialize the store with samples
 using (var scope = app.Services.CreateScope())
 {
     var store = scope.ServiceProvider.GetRequiredService<UrlStore>();
     store.InitializeSampleUrls();
 }
 
-// Enable Swagger middleware
+// Enable Swagger
 app.UseSwagger();
 app.UseSwaggerUI(c =>
 {
